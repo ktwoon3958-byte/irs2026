@@ -322,7 +322,7 @@ nav.sections .wrap{justify-content:space-between}
     <div class="arr" aria-hidden="true">→</div>
     <div class="node key"><span class="big">× table</span><b>Standard comparison table of land prices</b><span>Multipliers for each parcel attribute, derived by multiple regression from representative-land data.</span></div>
     <div class="arr" aria-hidden="true">→</div>
-    <div class="node"><span class="big">~35 million</span><b>Individual parcels</b><span>Priced by Si/Gun/Gu (municipal) officials from the nearest comparable representative land.</span></div>
+    <div class="node"><span class="big">~35 million</span><b>Individual parcels</b><span>Priced by Si/Gun/Gu (municipal) officials from a comparable representative parcel.</span></div>
   </div>
   <div class="steps-line" aria-label="Annual procedure for individual parcels">
     <span>Attribute survey</span><i>→</i><span>Price calculation</span><i>→</i><span>Verification by appraisal corporations</span><i>→</i><span>Public perusal, 20 days</span><i>→</i><span>Commission review</span><i>→</i><span>Announcement</span><i>→</i><span>Objection, 30 days</span>
@@ -401,7 +401,7 @@ nav.sections .wrap{justify-content:space-between}
     <li><div class="fig"><svg viewBox="20 20 165 165" aria-hidden="true"><polygon points="35,50 145,35 165,120 110,170 50,155" class="pg-full"/></svg></div><div><b>4 · Deep layers</b><span>Grasp the whole outline</span></div></li>
     <li class="last"><div class="probs" aria-label="Example output probabilities">
         <div><span>Square</span><i style="width:4%"></i><span class="tot">2%</span></div>
-        <div><span>Rectangle</span><i style="width:12%"></i><span class="tot">8%</span></div>
+        <div><span>Deep rectangle</span><i style="width:12%"></i><span class="tot">8%</span></div>
         <div><span>…</span><span></span><span></span></div>
         <div class="top"><span>Irregular</span><i style="width:100%"></i><span class="tot">85%</span></div>
       </div><div><b>5 · Decision</b><span>One of six lot shapes (example figures)</span></div></li>
@@ -464,7 +464,7 @@ nav.sections .wrap{justify-content:space-between}
     </svg></div>
     <p class="strip-cap">What each stage received carries on, so the first information survives to the end. A deeper stack can then judge better.</p>
     <div class="result r"><span><b>How it grows</b> Add layers only. Standard versions have 18, 34, 50, 101 or 152 layers; Phase 1 compared depths from 12 to 152 and kept 34.</span></div>
-    <div class="result r"><span><b>Result</b> ResNet-34 · 22.68 million parameters · 79.5% agreement</span></div>
+    <div class="result r"><span><b>Result</b> ResNet-34 · 22.68 million parameters · 79.5% agreement on validation data</span></div>
   </div>
 
   <div class="sub">
@@ -522,7 +522,7 @@ nav.sections .wrap{justify-content:space-between}
       <text x="336" y="66" class="s-g" font-size="15" font-weight="700">Faster training</text>
       <text x="336" y="92" class="s-t" font-size="14">Accuracy kept</text>
     </svg></div>
-    <div class="result e"><span><b>Result</b> EfficientNetV2-S · 20.34 million parameters · 80.6% agreement</span><span><b>Lighter option</b> V2-B0 · 5.93 million (about a quarter of ResNet-34) · 80.1%</span></div>
+    <div class="result e"><span><b>Result</b> EfficientNetV2-S · 20.34 million parameters · 80.6% agreement on validation data</span><span><b>Lighter option</b> V2-B0 · 5.93 million (about a quarter of ResNet-34) · 80.1%</span></div>
   </div>
   <p class="src">Source: KNU Phase 2 report, Table Ⅳ-1. Agreement with surveyor-recorded shapes on validation data, so these figures differ from the national totals in the confusion matrices. How the models work is general background, not taken from the reports; notes and probabilities in the figures are illustrative.</p>
 </section>
@@ -560,7 +560,7 @@ nav.sections .wrap{justify-content:space-between}
 
   <div class="sub">
     <div class="sub-head"><span class="tag e">DATA AUGMENTATION</span><h3>Seven random transforms</h3></div>
-    <p>Rare classes could not simply be collected in larger numbers. Instead, each training image was randomly transformed during training so the model learns the shape, not the drawing style.</p>
+    <p>There was little more rare-class data to collect. Instead, each training image was randomly transformed during training so the model learns the shape, not the drawing style.</p>
     <figure>
       <div class="frame"><img data-img="4" src="data:image/webp;base64,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" width="546" height="379" alt="One parcel image shown original and under seven transforms" loading="lazy"></div>
       <figcaption>Top row, left to right: original, resize, brightness, contrast inversion. Bottom row: flip, rotation, zoom, translation.</figcaption>
@@ -736,9 +736,9 @@ nav.sections .wrap{justify-content:space-between}
     <span class="faq-group">Method</span>
     <details><summary>Why not just a deeper ResNet?</summary><p>Phase 1 compared ResNets from 12 to 152 layers; depth moved agreement by less than one point. EfficientNetV2 also uses shortcut connections and gains from lighter MBConv blocks and compound scaling. Both are published standard architectures, so the pipeline can be reproduced elsewhere.</p></details>
     <details><summary>Why did Phase 2 drop the 125% close-up image?</summary><p>Random zoom during augmentation stands in for the close-up view. The two set-ups were not tested side by side, but agreement on representative land did not fall.</p></details>
-    <details><summary>Is the 82.2% measured on training data?</summary><p>Partly. It covers all representative land, including the 80% used for training. On validation data alone, agreement is 80.6%, against 80.7% on training plus validation. The in-sample effect is small. The gap to individual parcels is explained in the first question above.</p></details>
+    <details><summary>Is the 82.2% measured on training data?</summary><p>Partly. It covers all representative land, including the 80% used for training. On validation data alone, agreement is 80.6%, against 80.7% on training plus validation, so the in-sample effect is small. These two figures come from the report’s model comparison (Table Ⅳ-1), which uses the full training records; 82.2% is computed from the national confusion matrix for representative land, so the figures are not on the same basis. The gap to individual parcels is explained in the first question above.</p></details>
     <details><summary>Did augmentation fix the class imbalance?</summary><p>Not by itself. Random transforms applied to every image make the model more robust, but they do not change the class proportions. That is why κ, balanced accuracy and macro-F1 are reported alongside agreement.</p></details>
-    <details><summary>When the model is confident but disagrees, how often does the record need correcting?</summary><p>This was not measured nationally. Individual cases were reviewed visually. A field-checked random sample of these parcels, as IAAO’s data-quality standard suggests, is the natural next test.</p></details>
+    <details><summary>When the model is confident but disagrees, how often does review confirm the record?</summary><p>This was not measured nationally. Individual cases were reviewed visually.</p></details>
     <span class="faq-group">Implementation</span>
     <details><summary>What software and hardware were used?</summary><p>The pipeline is open-source Python. Phase 2 parcel images were drawn with GeoPandas, Cartopy and Matplotlib and run in parallel with joblib. The model was built in TensorFlow (Keras) and trained on a single NVIDIA GeForce RTX 3090 GPU.</p></details>
     <details><summary>How is one input image made?</summary><p>In Phase 2, the frame extends twice the parcel’s size beyond its outline on every side — the 500% margin. Only the target parcel is drawn, over the surrounding roads.</p></details>
@@ -811,7 +811,7 @@ nav.sections .wrap{justify-content:space-between}
     <div class="arr" aria-hidden="true">→</div>
     <div class="node key"><span class="big">× 배율</span><b>토지가격비준표</b><span>표준지 자료를 다중회귀분석해 만든 토지특성별 가격배율입니다.</span></div>
     <div class="arr" aria-hidden="true">→</div>
-    <div class="node"><span class="big">약 3,500만</span><b>개별필지</b><span>시·군·구 공무원이 가장 유사한 비교표준지를 기준으로 가격을 산정합니다.</span></div>
+    <div class="node"><span class="big">약 3,500만</span><b>개별필지</b><span>시·군·구 공무원이 용도지역·이용상황이 같고 가격수준이 비슷한 비교표준지를 기준으로 가격을 산정합니다.</span></div>
   </div>
   <div class="steps-line" aria-label="개별공시지가 연간 절차">
     <span>토지특성조사</span><i>→</i><span>지가산정</span><i>→</i><span>감정평가법인등 검증</span><i>→</i><span>열람·의견제출 20일</span><i>→</i><span>부동산가격공시위원회 심의</span><i>→</i><span>결정·공시</span><i>→</i><span>이의신청 30일</span>
@@ -890,7 +890,7 @@ nav.sections .wrap{justify-content:space-between}
     <li><div class="fig"><svg viewBox="20 20 165 165" aria-hidden="true"><polygon points="35,50 145,35 165,120 110,170 50,155" class="pg-full"/></svg></div><div><b>4 · 깊은 층</b><span>전체 윤곽 파악</span></div></li>
     <li class="last"><div class="probs" aria-label="판정 확률 예시">
         <div><span>정방형</span><i style="width:4%"></i><span class="tot">2%</span></div>
-        <div><span>장방형</span><i style="width:12%"></i><span class="tot">8%</span></div>
+        <div><span>세장형</span><i style="width:12%"></i><span class="tot">8%</span></div>
         <div><span>…</span><span></span><span></span></div>
         <div class="top"><span>부정형</span><i style="width:100%"></i><span class="tot">85%</span></div>
       </div><div><b>5 · 판정</b><span>6개 형상 중 하나(확률은 예시)</span></div></li>
@@ -953,7 +953,7 @@ nav.sections .wrap{justify-content:space-between}
     </svg></div>
     <p class="strip-cap">단계마다 받은 내용이 그대로 이어져 처음 정보가 끝까지 남습니다. 그래서 깊게 쌓을수록 판정이 좋아집니다.</p>
     <div class="result r"><span><b>키우는 법</b> 층 수만 늘립니다. 표준 구성은 18·34·50·101·152층이며, 1단계 연구는 12층부터 152층까지 비교한 뒤 34층을 택했습니다.</span></div>
-    <div class="result r"><span><b>연구 결과</b> ResNet-34 · 파라미터 2,268만 개 · 일치율 79.5%</span></div>
+    <div class="result r"><span><b>연구 결과</b> ResNet-34 · 파라미터 2,268만 개 · 검증 일치율 79.5%</span></div>
   </div>
 
   <div class="sub">
@@ -1011,7 +1011,7 @@ nav.sections .wrap{justify-content:space-between}
       <text x="336" y="66" class="s-g" font-size="15" font-weight="700">학습 속도 ↑</text>
       <text x="336" y="92" class="s-t" font-size="14">정확도 유지</text>
     </svg></div>
-    <div class="result e"><span><b>연구 결과</b> EfficientNetV2-S · 파라미터 2,034만 개 · 일치율 80.6%</span><span><b>경량 대안</b> V2-B0 · 593만 개(ResNet-34의 약 1/4) · 80.1%</span></div>
+    <div class="result e"><span><b>연구 결과</b> EfficientNetV2-S · 파라미터 2,034만 개 · 검증 일치율 80.6%</span><span><b>경량 대안</b> V2-B0 · 593만 개(ResNet-34의 약 1/4) · 80.1%</span></div>
   </div>
   <p class="src">출처: 경북대 2단계 보고서 표 Ⅳ-1. 검증데이터에서 조사자 기록 형상과의 일치율이므로 전국 오분류표의 수치와 다릅니다. 모델 원리는 보고서가 아닌 일반 배경지식이며, 그림 속 메모와 확률은 이해를 돕는 예시입니다.</p>
 </section>
@@ -1049,7 +1049,7 @@ nav.sections .wrap{justify-content:space-between}
 
   <div class="sub">
     <div class="sub-head"><span class="tag e">데이터 증강</span><h3>7종 무작위 변환</h3></div>
-    <p>희소 형상의 자료를 단순히 더 모을 수는 없었습니다. 대신 학습 중에 이미지를 무작위로 변형해, 모델이 그림의 표현 방식이 아니라 형상 자체를 배우도록 했습니다.</p>
+    <p>희소 형상의 자료는 더 모을 여지가 거의 없었습니다. 대신 학습 중에 이미지를 무작위로 변형해, 모델이 그림의 표현 방식이 아니라 형상 자체를 배우도록 했습니다.</p>
     <figure>
       <div class="frame"><img data-img="4" width="546" height="379" alt="필지 이미지 한 장의 원본과 7종 변환" loading="lazy"></div>
       <figcaption>윗줄 왼쪽부터 원본, 크기 조정, 밝기, 대비 반전. 아랫줄은 뒤집기, 회전, 확대, 이동.</figcaption>
@@ -1225,9 +1225,9 @@ nav.sections .wrap{justify-content:space-between}
     <span class="faq-group">방법론</span>
     <details><summary>ResNet을 더 깊게 쌓으면 되지 않나요?</summary><p>1단계에서 12층부터 152층까지 비교했지만 깊이에 따른 일치율 차이는 1%p 미만이었습니다. EfficientNetV2도 지름길 연결을 쓰면서, 더 가벼운 MBConv 블록과 복합 스케일링으로 성능을 높입니다. 둘 다 공개된 표준 구조라 다른 기관에서도 재현할 수 있습니다.</p></details>
     <details><summary>2단계에서 125% 근접 이미지를 왜 뺐나요?</summary><p>데이터 증강의 무작위 확대가 근접 화면을 대신합니다. 두 방식을 나란히 비교하지는 않았지만 표준지 일치율은 떨어지지 않았습니다.</p></details>
-    <details><summary>82.2%는 학습데이터로 잰 값인가요?</summary><p>일부 그렇습니다. 학습에 쓴 80%를 포함한 표준지 전체 기준입니다. 검증데이터 단독 일치율은 80.6%로, 학습+검증 80.7%와 거의 같습니다. 표본 내 효과는 작습니다. 개별지와의 격차는 위의 첫 번째 질문에서 설명합니다.</p></details>
+    <details><summary>82.2%는 학습데이터로 잰 값인가요?</summary><p>일부 그렇습니다. 학습에 쓴 80%를 포함한 표준지 전체 기준입니다. 검증데이터 단독 일치율은 80.6%로, 학습+검증 80.7%와 거의 같아 표본 내 효과는 작습니다. 이 두 수치는 보고서의 모형 비교(표 Ⅳ-1)에서 전체 학습 자료로 낸 값이고, 82.2%는 표준지 전국 오분류표로 계산한 값이라 기준이 서로 다릅니다. 개별지와의 격차는 위의 첫 번째 질문에서 설명합니다.</p></details>
     <details><summary>데이터 증강으로 클래스 불균형이 해결되었나요?</summary><p>그 자체로는 아닙니다. 모든 이미지에 무작위 변환을 적용하면 모델은 강건해지지만 형상 비율은 바뀌지 않습니다. 그래서 일치율과 함께 κ, 균형 정확도, macro-F1을 제시합니다.</p></details>
-    <details><summary>모델이 확신하면서 기록과 다를 때, 실제로 기록을 고쳐야 하는 경우는 얼마나 되나요?</summary><p>전국 단위로는 측정하지 않았습니다. 개별 사례는 육안으로 검토했습니다. IAAO 자료 품질 기준이 제시하듯, 이런 필지를 무작위로 표본 추출해 현장 확인하는 것이 다음 검증 단계입니다.</p></details>
+    <details><summary>모델이 확신하면서 기록과 다를 때, 검토 결과 기록이 맞는 것으로 확인되는 경우는 얼마나 되나요?</summary><p>전국 단위로는 측정하지 않았습니다. 개별 사례는 육안으로 검토했습니다.</p></details>
     <span class="faq-group">구현 환경</span>
     <details><summary>어떤 소프트웨어와 하드웨어를 썼나요?</summary><p>전 과정이 오픈소스 파이썬입니다. 2단계 필지 이미지는 GeoPandas·Cartopy·Matplotlib으로 그리고 joblib으로 병렬 처리했습니다. 모델은 TensorFlow(Keras)로 만들어 NVIDIA GeForce RTX 3090 GPU 1장에서 학습했습니다.</p></details>
     <details><summary>입력 이미지 한 장은 어떻게 만드나요?</summary><p>2단계에서는 필지 경계 바깥으로 상하좌우 필지 크기의 2배씩 넓힌 범위(500% 여백)를 그립니다. 대상 필지 하나만 주변 도로 위에 그립니다.</p></details>
